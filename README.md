@@ -1,27 +1,26 @@
 # Burger Tech
 
-Sistema web de pedidos para uma hamburgueria, com site de delivery, pedidos pela mesa via QR code e painel administrativo. Comecei a partir do projeto em grupo da faculdade ([Science Burger – Backend](https://github.com/Josestadler2718/science-burger-backend)) e fui transformando num sistema completo, com front-end e back-end no mesmo repositório.
+O Burger Tech é um sistema de pedidos que eu criei para uma hamburgueria. Ele começou no projeto em grupo da faculdade, o [Science Burger](https://github.com/Josestadler2718/science-burger-backend), em que eu cuidava só da API de login. Depois, a ideia cresceu e virou um sistema completo, com site, painel e back-end no mesmo repositório.
 
-## O que o sistema faz
+## Como ele funciona
 
-- **Site público:** cardápio, carrinho, cadastro e login de clientes, e pedidos para entrega ou retirada.
-- **Pedido pela mesa:** cada mesa tem um QR code próprio. O cliente escaneia e cai direto no cardápio, já vinculado à comanda daquela mesa.
-- **Painel administrativo:** login separado para a equipe da loja, com mesas e pedidos atualizados em tempo real via WebSocket e upload de fotos dos produtos.
+Imagina a hamburgueria funcionando com ele:
 
-## Tecnologias
+- **Pelo site**, o cliente vê o cardápio, monta o carrinho e escolhe se quer entrega ou retirada. Ele também pode criar uma conta e acompanhar os pedidos.
+- **Na mesa**, tem um QR code. O cliente escaneia e já cai no cardápio, com o pedido ligado à comanda daquela mesa, sem precisar chamar o garçom.
+- **No painel da loja**, a equipe entra com um login próprio e vê mesas e pedidos chegando em tempo real. Por ali também dá para subir as fotos dos produtos.
 
-| Parte | Tecnologias |
-|---|---|
-| Back-end (`apps/api`) | Python, FastAPI, SQLite, pytest |
-| Front-end (`apps/web`) | React 18, TypeScript, Vite, Tailwind CSS |
+## Com o que eu fiz
 
-O banco tem 13 tabelas (usuários, administradores, mesas, comandas, pedidos, pagamentos e outras), e parte das regras de negócio fica garantida por triggers e índices no próprio banco, em `apps/api/database/schema.sql`. O back-end tem testes de autenticação, mesas e pedidos.
+No back-end usei **Python com FastAPI** e um banco **SQLite** com 13 tabelas. Parte das regras de negócio fica direto no banco, com triggers e índices, para que os dados continuem certos mesmo fora da API. Também escrevi testes com **pytest** para o login, as mesas e os pedidos.
 
-## Como rodar
+No front-end usei **React com TypeScript**, Vite e Tailwind. As atualizações em tempo real do painel funcionam com WebSocket.
 
-O passo a passo completo está no [README do projeto](burger-tech/README.md). Em resumo: a API sobe com `uvicorn` dentro de `burger-tech/apps/api`, e o front-end com `npm run dev` a partir de `burger-tech/`.
+## Quer rodar na sua máquina?
 
-## Autor
+O passo a passo completo está no [README do projeto](burger-tech/README.md). Em resumo: a API sobe com `uvicorn` dentro de `burger-tech/apps/api`, e o site com `npm run dev` a partir de `burger-tech/`.
 
-José Augusto, estudante de Ciência da Computação na Unigranrio | Afya.
+---
+
+Feito por José Augusto, estudante de Ciência da Computação na Unigranrio | Afya.
 [LinkedIn](https://www.linkedin.com/in/jos%C3%A9-augusto-stadler/) · [GitHub](https://github.com/Josestadler2718)
